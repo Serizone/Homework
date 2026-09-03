@@ -3,7 +3,7 @@ package ru.otus.java.homework;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class homework3 {
+public class Homework3 {
     static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Выберете метод для исполнения");
@@ -41,17 +41,21 @@ public class homework3 {
     }
 
     static void square(int size) {
-        char[][] result = new char[size][size];
-        Arrays.fill(result[0], '*');
-        Arrays.fill(result[result.length - 1], '*');
-        for (int i = 1; i < result.length - 1; i++) {
-            result[i][0] = '*';
-            Arrays.fill(result[i], 1, result.length - 1, ' ');
-            result[i][result.length - 1] = '*';
+        for (int i = 0; i < size; i++) {
+            System.out.print("* ");
         }
-        for (char[] chars : result) {
-            System.out.println(chars);
+        System.out.print("\n");
+        for (int i = 1; i < size - 1; i++) {
+            System.out.print("* ");
+            for (int k = 1; k < size - 1; k++){
+                System.out.print("  ");
+            }
+            System.out.print("* \n");
         }
+        for (int i = 0; i < size; i++) {
+            System.out.print("* ");
+        }
+        System.out.print("\n");
     }
 
     static void nullDiagonal(int[][] nums) {
@@ -66,7 +70,7 @@ public class homework3 {
     }
 
     static int findMax(int[][] nums) {
-        int maxNum = 0;
+        int maxNum = Integer.MIN_VALUE;
         for (int i = 0; i < nums.length; i++) {
             for (int k = 0; k < nums[i].length; k++) {
                 if (nums[i][k] > maxNum) maxNum = nums[i][k];
@@ -76,12 +80,13 @@ public class homework3 {
     }
 
     static int sumSecondLine(int[][] nums) {
-        int sum = -1;
-        if (nums.length >= 2) {
-            sum += 1;
-            for (int i = 0; i < nums[1].length; i++) {
-                sum += nums[1][i];
-            }
+
+        if (nums.length < 2) {
+            return -1;
+        }
+        int sum = 0;
+        for (int i = 0; i < nums[1].length; i++) {
+            sum += nums[1][i];
         }
         return sum;
     }
@@ -95,5 +100,4 @@ public class homework3 {
         }
         return matrix;
     }
-
 }
