@@ -17,18 +17,18 @@ public class Main {
     };
 
     void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < people.length; i++) {
             if (2026 - people[i].getBirthYear() > 40) {
-                people[i].userInfo();
+                people[i].Info();
             }
         }
         System.out.println("---------");
         Box myBox = new Box();
-        myBox.boxInfo();
+        myBox.Info();
         System.out.println("---------");
         myBox.setColor("Красный");
         myBox.putItem("Шарик");
         myBox.close();
-        myBox.boxInfo();
+        myBox.Info();
     }
 }

@@ -48,22 +48,22 @@ public class User {
     }
 
     public User() {
-        setName("Ivan");
-        setSurname("Ivanov");
-        setMiddleName("Ivanovich");
-        setBirthYear(2000);
-        setEmail("Ivanov00@mail.com");
+        this.name = "Ivan";
+        this.surname = "Ivanov";
+        this.middleName = "Ivanovich";
+        this.birthYear = 2000;
+        this.email = "Ivanov00@mail.com";
     }
 
     public User(String name, String surname, String middleName, int birthYear, String email) {
-        setName(name);
-        setSurname(surname);
-        setMiddleName(middleName);
-        setBirthYear(birthYear);
-        setEmail(email);
+        this.name = name;
+        this.surname = surname;
+        this.middleName = middleName;
+        this.birthYear = birthYear;
+        this.email = email;
     }
 
-    public void userInfo() {
+    public void Info() {
         System.out.println("ФИО: " + getName() + " " + getSurname() + " " + getMiddleName());
         System.out.println("Год рождения: " + getBirthYear());
         System.out.println("e-mail: " + getEmail());

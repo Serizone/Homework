@@ -39,17 +39,17 @@ public class Box {
 
     public void putItem(String item) {
         if (!isOpen()) {System.out.println("Коробка закрыта");}
-        else if (getItem() != null) {System.out.println("В коробке уже лежит " + getItem());}
-        else {this.item = item;}
+        else if (this.item != null) {System.out.println("В коробке уже лежит " + this.item);}
+        else {this.item = item; System.out.println("В коробке положили " + item);}
     }
 
     public void takeItem() {
         if (!isOpen()) {System.out.println("Коробка закрыта");}
-        else if (getItem() == null) {System.out.println("Коробка пуста");}
-        else {this.item = null;}
+        else if (item == null) {System.out.println("Коробка пуста");}
+        else {System.out.println("Из коробки убрали " + this.item); this.item = null;}
     }
 
-    public void boxInfo() {
+    public void Info() {
         System.out.println("Размер: " + getSize() + " единиц кубических");
         System.out.println("Цвет: " + getColor());
         System.out.print("Коробка ");
