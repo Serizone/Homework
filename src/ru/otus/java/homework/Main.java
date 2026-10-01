@@ -1,5 +1,4 @@
 package ru.otus.java.homework;
-import java.lang.classfile.instruction.SwitchCase;
 import java.util.Scanner;
 
 public class Main {
