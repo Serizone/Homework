@@ -3,27 +3,37 @@ import java.util.Scanner;
 
 public class Main {
     //Проверяет является ли массив 4X4
-    public boolean matrixCheck(String[][] mat) {
-        if(mat.length != 4) {return false;}
+    public void matrixCheck(String[][] mat) throws AppArraySizeException {
+        if(mat.length != 4) {throw new AppArraySizeException("Массив не верного размера");}
         else {
             for(int i = 0; i < 4; i++) {
-                if(mat[i].length != 4) {return false;}
+                if(mat[i].length != 4) {throw new AppArraySizeException("Массив не верного размера");}
             }
         }
-        return true;
+    }
+
+    //Проверяет является ли строка числом
+    public void stringCheck(String maybeNum) throws AppArrayDataException {
+        if (!(maybeNum.matches("-?\\d+"))) {
+            throw new AppArrayDataException("В массиве найдено не число");
+        }
     }
 
     public int sumArray(String[][] array) {
         int sum = 0;
-        if(!(matrixCheck(array))) {throw new AppArraySizeException("Массив не правильного размера");}
-        else {
-            try {
-                for(int i = 0; i < 16; i++) {
-                    sum += Integer.parseInt(array[i/4][i%4]);
-                }
-            } catch (NumberFormatException e) {
-                throw new AppArrayDataException("В массиве обнаружено не целое число: ", e.getMessage());
+        int k = 0;
+        try {
+            matrixCheck(array);
+            for (int i = 0; i < 16; i++) {
+                k = i;
+                stringCheck(array[i / 4][i % 4]);
+                sum += Integer.parseInt(array[i / 4][i % 4]);
             }
+        } catch (AppArraySizeException e) {
+            System.out.println(e.getMessage());
+        } catch (AppArrayDataException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Строка: " + k / 4 + ", Столбец: " + k % 4);
         }
         return sum;
     }
