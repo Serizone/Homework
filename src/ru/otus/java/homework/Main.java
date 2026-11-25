@@ -1,3 +1,5 @@
+package ru.otus.java.homework;
+
 import java.util.Scanner;
 
 public class Main {

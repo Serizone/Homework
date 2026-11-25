@@ -1,3 +1,5 @@
+package ru.otus.java.homework;
+
 import java.util.List;
 
 public interface SearchTree<T> {

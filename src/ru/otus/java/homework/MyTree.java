@@ -1,7 +1,9 @@
+package ru.otus.java.homework;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyTree implements SearchTree<Integer>{
+public class MyTree implements SearchTree<Integer> {
     private ArrayList<Integer> nums = new ArrayList<>();
     private Node root = null;
 
